@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Regístrate en Brasa Points, el programa de fidelización digital de Brasaland." />
+  <title>Brasa Points | Brasaland</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-stone-50 text-stone-900">
+  <header class="bg-white shadow-sm">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <a href="index.html" class="text-2xl font-black text-red-700">Brasaland</a>
+      <a href="index.html" class="text-sm font-bold text-stone-700 hover:text-red-700">Volver al inicio</a>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-4xl px-6 py-12">
+    <section class="mb-10 text-center">
+      <p class="mb-3 text-sm font-bold uppercase tracking-widest text-red-700">Brasa Points</p>
+      <h1 class="mb-4 text-4xl font-black md:text-5xl">Únete al programa de fidelización</h1>
+      <p class="mx-auto max-w-2xl text-lg leading-8 text-stone-700">
+        Acumula puntos con cada visita, recibe ofertas exclusivas y disfruta beneficios
+        en cualquiera de nuestras 14 ubicaciones en Colombia y Florida.
+      </p>
+    </section>
+
+    <section class="mb-8 rounded-2xl bg-yellow-100 p-5 text-center font-semibold text-stone-800">
+      ¿Quieres hacer un pedido? Llama a tu ubicación favorita o visítanos directamente.
+      <span class="text-red-700">¡Pronto tendremos pedidos en línea!</span>
+    </section>
+
+    <form id="brasaForm" novalidate class="rounded-3xl bg-white p-6 shadow-xl md:p-10">
+      <div id="successMessage" class="mb-8 hidden rounded-2xl border border-green-300 bg-green-50 p-6 text-green-900" role="status" aria-live="polite">
+        <h2 class="mb-2 text-2xl font-black">¡Bienvenido a Brasa Points!</h2>
+        <p>
+          Tu registro ha sido exitoso. Recibirás un email de confirmación en los próximos minutos
+          con los detalles de tu cuenta y cómo empezar a acumular puntos.
+        </p>
+        <p class="mt-2 font-semibold">
+          ¡Ya puedes disfrutar de tus beneficios en cualquiera de nuestras 14 ubicaciones!
+        </p>
+      </div>
+
+      <fieldset class="mb-8">
+        <legend class="mb-6 text-2xl font-black">Datos personales</legend>
+
+        <div class="grid gap-6 md:grid-cols-2">
+          <div>
+            <label for="fullName" class="mb-2 block font-bold">Nombre completo *</label>
+            <input id="fullName" name="fullName" type="text" required
+              class="w-full rounded-xl border border-stone-300 px-4 py-3 focus:border-red-700 focus:outline-none focus:ring-4 focus:ring-red-100" />
+            <p id="fullNameError" class="mt-2 hidden text-sm font-semibold text-red-700"></p>
+          </div>
+
+          <div>
+            <label for="email" class="mb-2 block font-bold">Email *</label>
+            <input id="email" name="email" type="email" required
+              class="w-full rounded-xl border border-stone-300 px-4 py-3 focus:border-red-700 focus:outline-none focus:ring-4 focus:ring-red-100" />
+            <p id="emailError" class="mt-2 hidden text-sm font-semibold text-red-700"></p>
+          </div>
+
+          <div>
+            <label for="phone" class="mb-2 block font-bold">Teléfono *</label>
+            <input id="phone" name="phone" type="tel" required placeholder="+57 300 123 4567"
+              class="w-full rounded-xl border border-stone-300 px-4 py-3 focus:border-red-700 focus:outline-none focus:ring-4 focus:ring-red-100" />
+            <p id="phoneError" class="mt-2 hidden text-sm font-semibold text-red-700"></p>
+          </div>
+
+          <div>
+            <label for="birthDate" class="mb-2 block font-bold">Fecha de nacimiento *</label>
+            <input id="birthDate" name="birthDate" type="date" required
+              class="w-full rounded-xl border border-stone-300 px-4 py-3 focus:border-red-700 focus:outline-none focus:ring-4 focus:ring-red-100" />
+            <p id="birthDateError" class="mt-2 hidden text-sm font-semibold text-red-700"></p>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="mb-8">
+        <legend class="mb-6 text-2xl font-black">Ubicación y preferencias</legend>
+
+        <div class="grid gap-6 md:grid-cols-2">
+          <div>
+            <label for="country" class="mb-2 block font-bold">País *</label>
+            <select id="country" name="country" required
+              class="w-full rounded-xl border border-stone-300 px-4 py-3 focus:border-red-700 focus:outline-none focus:ring-4 focus:ring-red-100">
+              <option value="">Selecciona tu país</option>
+              <option value="Colombia">Colombia</option>
+              <option value="Estados Unidos">Estados Unidos</option>
+            </select>
+            <p id="countryError" class="mt-2 hidden text-sm font-semibold text-red-700"></p>
+          </div>
+
+          <div>
+            <label for="city" class="mb-2 block font-bold">Ciudad *</label>
+            <select id="city" name="city" required
+              class="w-full rounded-xl border border-stone-300 px-4 py-3 focus:border-red-700 focus:outline-none focus:ring-4 focus:ring-red-100">
+              <option value="">Selecciona primero tu país</option>
+            </select>
+            <p id="cityError" class="mt-2 hidden text-sm font-semibold text-red-700"></p>
+          </div>
+
+          <div class="md:col-span-2">
+            <label for="favoriteLocation" class="mb-2 block font-bold">Ubicación favorita de Brasaland</label>
+            <select id="favoriteLocation" name="favoriteLocation"
+              class="w-full rounded-xl border border-stone-300 px-4 py-3 focus:border-red-700 focus:outline-none focus:ring-4 focus:ring-red-100">
+              <option value="">Selecciona país y ciudad primero</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="mt-6">
+          <p class="mb-3 font-bold">Preferencias alimentarias</p>
+          <div class="grid gap-3 md:grid-cols-4">
+            <label class="flex items-center gap-2 rounded-xl border border-stone-200 p-3">
+              <input type="checkbox" name="dietaryPreferences" value="Sin restricciones" />
+              Sin restricciones
+            </label>
+            <label class="flex items-center gap-2 rounded-xl border border-stone-200 p-3">
+              <input type="checkbox" name="dietaryPreferences" value="Vegetariano" />
+              Vegetariano
+            </label>
+            <label class="flex items-center gap-2 rounded-xl border border-stone-200 p-3">
+              <input type="checkbox" name="dietaryPreferences" value="Sin gluten" />
+              Sin gluten
+            </label>
+            <label class="flex items-center gap-2 rounded-xl border border-stone-200 p-3">
+              <input type="checkbox" name="dietaryPreferences" value="Otro" />
+              Otro
+            </label>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="mb-8">
+        <legend class="mb-6 text-2xl font-black">Programa Brasa Points</legend>
+
+        <div class="mb-6">
+          <label for="referralSource" class="mb-2 block font-bold">¿Cómo nos conociste? *</label>
+          <select id="referralSource" name="referralSource" required
+            class="w-full rounded-xl border border-stone-300 px-4 py-3 focus:border-red-700 focus:outline-none focus:ring-4 focus:ring-red-100">
+            <option value="">Selecciona una opción</option>
+            <option value="Redes sociales">Redes sociales</option>
+            <option value="Recomendación">Recomendación</option>
+            <option value="Pasando por el local">Pasando por el local</option>
+            <option value="Búsqueda en internet">Búsqueda en internet</option>
+            <option value="Otro">Otro</option>
+          </select>
+          <p id="referralSourceError" class="mt-2 hidden text-sm font-semibold text-red-700"></p>
+        </div>
+
+        <label class="mb-4 flex items-start gap-3 rounded-xl border border-stone-200 p-4">
+          <input id="terms" name="terms" type="checkbox" required class="mt-1" />
+          <span>
+            Acepto términos del programa Brasa Points *
+          </span>
+        </label>
+        <p id="termsError" class="mb-4 hidden text-sm font-semibold text-red-700"></p>
+
+        <label class="flex items-start gap-3 rounded-xl border border-stone-200 p-4">
+          <input id="offers" name="offers" type="checkbox" class="mt-1" />
+          <span>Quiero recibir ofertas por email</span>
+        </label>
+      </fieldset>
+
+      <div class="flex flex-col gap-4 sm:flex-row">
+        <button type="submit"
+          class="rounded-full bg-red-700 px-8 py-3 font-bold text-white shadow-lg hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300">
+          Enviar registro
+        </button>
+
+        <button type="reset"
+          class="rounded-full border border-stone-300 px-8 py-3 font-bold text-stone-800 hover:bg-stone-100">
+          Limpiar formulario
+        </button>
+      </div>
+    </form>
+  </main>
+
+  <footer class="bg-stone-950 px-6 py-8 text-center text-white">
+    <p>© 2025 Brasaland. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="validation.js"></script>
+</body>
+</html>
