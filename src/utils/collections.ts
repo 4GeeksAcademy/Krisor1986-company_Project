@@ -44,6 +44,10 @@ export function sortCustomers(
     const valueA = a[field];
     const valueB = b[field];
 
+    if (valueA === undefined || valueB === undefined) {
+      return 0;
+    }
+
     if (valueA < valueB) return direction === "asc" ? -1 : 1;
     if (valueA > valueB) return direction === "asc" ? 1 : -1;
 
